@@ -95,6 +95,12 @@
         .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
         .faq-item.active .faq-content { max-height: 300px; }
         .faq-item.active .faq-icon { transform: rotate(45deg); color: #39ff14; }
+
+        /* Menu Mobile Toggle Animação */
+        .hamburger-line { transition: all 0.3s ease-in-out; }
+        .menu-open .line-1 { transform: translateY(8px) rotate(45deg); }
+        .menu-open .line-2 { opacity: 0; }
+        .menu-open .line-3 { transform: translateY(-8px) rotate(-45deg); }
     </style>
 
     <!-- SCHEMA MARKUP (Avançado para SEO Local e Google AIO) -->
@@ -157,25 +163,24 @@
 
     <!-- HEADER -->
     <header class="fixed w-full z-50 bg-darker/90 backdrop-blur-md border-b border-graydark">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center relative">
             
-            <!-- LOGO EM CÓDIGO (Header) - Implementação inteligente com SVG para garantir a leitura do texto -->
-            <a href="#" class="flex items-center group relative">
-                <!-- Efeito de brilho externo fixo para destacar a marca -->
-                <div class="absolute inset-0 bg-neon blur-[20px] opacity-20 group-hover:opacity-40 transition-opacity rounded-full"></div>
-                <!-- Círculo ampliado e com borda esverdeada -->
-                <div class="relative flex items-center justify-center w-20 h-20 md:w-24 md:h-24 bg-black rounded-full border-2 border-neon/40 shadow-[0_0_15px_rgba(0,0,0,1)] group-hover:border-neon transition-all duration-300">
-                    <svg viewBox="0 0 200 85" class="w-[85%] h-auto drop-shadow-[0_0_3px_rgba(57,255,20,0.8)]">
-                        <!-- Texto Principal: AAKM -->
-                        <text x="100" y="60" font-family="Oswald, sans-serif" font-weight="900" font-size="72" fill="#39ff14" text-anchor="middle" letter-spacing="-1">AAKM</text>
-                        <!-- Fundo Verde (Retângulo expandido) -->
-                        <rect x="0" y="66" width="200" height="18" fill="#39ff14" rx="1" />
-                        <!-- Subtexto nitido: Adriano Almeida Krav Maga -->
-                        <text x="100" y="79" font-family="Inter, sans-serif" font-weight="900" font-size="11" fill="#000000" text-anchor="middle" letter-spacing="0.5">ADRIANO ALMEIDA KRAV MAGA</text>
+            <!-- LOGO EM CÓDIGO (Header) - Otimizado para Ocupar Muito Mais Espaço na Versão Mobile -->
+            <a href="#" class="flex items-center group relative z-50">
+                <div class="absolute inset-0 bg-neon blur-[15px] opacity-20 group-hover:opacity-40 transition-opacity rounded-xl"></div>
+                <!-- Box esticada ao máximo mantendo harmonia com o menu (px ajustado para encaixar melhor a largura) -->
+                <div class="relative flex items-center justify-center px-3 py-2.5 sm:px-4 md:py-3 md:px-5 bg-black rounded-xl border-2 border-neon/40 shadow-[0_0_15px_rgba(0,0,0,1)] group-hover:border-neon transition-all duration-300">
+                    <!-- Largura da imagem vetorizada controlada ativamente (w-48 no mobile, crescendo em telas maiores) -->
+                    <svg viewBox="0 0 200 85" class="w-48 sm:w-56 md:w-64 h-auto drop-shadow-[0_0_3px_rgba(57,255,20,0.8)]">
+                        <text x="100" y="58" font-family="Oswald, sans-serif" font-weight="900" font-size="70" fill="#39ff14" text-anchor="middle" letter-spacing="-1">AAKM</text>
+                        <!-- Barra verde levemente arredondada para combinar -->
+                        <rect x="0" y="64" width="200" height="21" fill="#39ff14" rx="2" />
+                        <text x="100" y="79" font-family="Inter, sans-serif" font-weight="900" font-size="12" fill="#000000" text-anchor="middle" letter-spacing="0.5">ADRIANO ALMEIDA KRAV MAGA</text>
                     </svg>
                 </div>
             </a>
 
+            <!-- NAVEGAÇÃO DESKTOP -->
             <nav class="hidden md:flex gap-6 text-sm font-semibold text-gray-300">
                 <a href="#sobre" class="hover:text-neon transition-colors">O Instrutor</a>
                 <a href="#servicos" class="hover:text-neon transition-colors">Aulas em POA</a>
@@ -185,6 +190,36 @@
             <a href="https://wa.me/5551985200349?text=Olá, gostaria de agendar minha aula experimental de Krav Maga!" target="_blank" class="hidden md:inline-block bg-neon text-black font-bold py-2 px-5 rounded hover:bg-white transition-colors">
                 Aula Experimental
             </a>
+
+            <!-- BOTÃO MENU HAMBÚRGUER (MOBILE) -->
+            <button id="mobile-menu-btn" class="md:hidden flex flex-col justify-center items-center w-10 h-10 z-50 focus:outline-none ml-4" aria-label="Abrir menu">
+                <span class="hamburger-line line-1 w-8 h-1 bg-neon mb-1.5 block rounded-full shadow-[0_0_5px_rgba(57,255,20,0.5)]"></span>
+                <span class="hamburger-line line-2 w-8 h-1 bg-neon mb-1.5 block rounded-full shadow-[0_0_5px_rgba(57,255,20,0.5)]"></span>
+                <span class="hamburger-line line-3 w-8 h-1 bg-neon block rounded-full shadow-[0_0_5px_rgba(57,255,20,0.5)]"></span>
+            </button>
+        </div>
+
+        <!-- MENU MOBILE (DROP-DOWN) -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-darker/95 backdrop-blur-xl border-b border-neon/30 shadow-2xl transition-all duration-300 overflow-hidden">
+            <div class="px-6 py-8 flex flex-col space-y-6 text-center">
+                
+                <!-- DESTAQUE ACESSIBILIDADE/MARCA -->
+                <div class="pb-6 border-b border-graydark/50">
+                    <span class="block text-gray-400 text-xs font-semibold uppercase tracking-[0.2em] mb-2">Método Oficial</span>
+                    <h2 class="text-neon text-2xl font-black font-heading tracking-wide drop-shadow-[0_0_5px_rgba(57,255,20,0.5)]">ADRIANO ALMEIDA <br>KRAV MAGA</h2>
+                </div>
+
+                <!-- LINKS MOBILE -->
+                <a href="#sobre" class="mobile-link text-white font-bold text-lg hover:text-neon transition-colors">O Instrutor</a>
+                <a href="#servicos" class="mobile-link text-white font-bold text-lg hover:text-neon transition-colors">Aulas em Porto Alegre</a>
+                <a href="#historia" class="mobile-link text-white font-bold text-lg hover:text-neon transition-colors">A História do Krav Maga</a>
+                <a href="#prova-social" class="mobile-link text-white font-bold text-lg hover:text-neon transition-colors">Quem Confia</a>
+                <a href="#faq" class="mobile-link text-white font-bold text-lg hover:text-neon transition-colors">Dúvidas Frequentes</a>
+                
+                <a href="https://wa.me/5551985200349?text=Olá, gostaria de agendar minha aula experimental gratuita!" target="_blank" class="mobile-link btn-neon bg-neon text-black font-black text-xl py-4 px-6 rounded mt-4 uppercase">
+                    Agendar Aula Grátis
+                </a>
+            </div>
         </div>
     </header>
 
@@ -277,7 +312,7 @@
             </div>
         </section>
 
-       <!-- 3. SOBRE O INSTRUTOR (AUTORIDADE FORTE) -->
+        <!-- 3. SOBRE O INSTRUTOR (AUTORIDADE FORTE) -->
         <section id="sobre" class="py-20 border-b border-graydark">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid md:grid-cols-12 gap-12 items-center">
@@ -508,16 +543,13 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-8">
             <div>
                 <div class="mb-8 relative inline-block">
-                    <!-- LOGO EM CÓDIGO (Footer) - Versão Gigante e Imponente -->
-                    <div class="absolute inset-0 bg-neon blur-[30px] opacity-20 rounded-full"></div>
-                    <div class="relative flex items-center justify-center w-32 h-32 md:w-40 md:h-40 bg-black rounded-full border-2 border-neon/50 shadow-[0_0_20px_rgba(0,0,0,1)] inline-flex">
-                        <svg viewBox="0 0 200 85" class="w-[85%] h-auto drop-shadow-[0_0_4px_rgba(57,255,20,0.8)]">
-                            <!-- Texto Principal: AAKM -->
-                            <text x="100" y="60" font-family="Oswald, sans-serif" font-weight="900" font-size="72" fill="#39ff14" text-anchor="middle" letter-spacing="-1">AAKM</text>
-                            <!-- Fundo Verde (Retângulo expandido) -->
-                            <rect x="0" y="66" width="200" height="18" fill="#39ff14" rx="1" />
-                            <!-- Subtexto nitido: Adriano Almeida Krav Maga -->
-                            <text x="100" y="79" font-family="Inter, sans-serif" font-weight="900" font-size="11" fill="#000000" text-anchor="middle" letter-spacing="0.5">ADRIANO ALMEIDA KRAV MAGA</text>
+                    <!-- LOGO EM CÓDIGO (Footer) - Alinhado também ao novo formato retangular -->
+                    <div class="absolute inset-0 bg-neon blur-[30px] opacity-20 rounded-xl"></div>
+                    <div class="relative flex items-center justify-center px-6 py-4 md:px-8 bg-black rounded-xl border-2 border-neon/50 shadow-[0_0_20px_rgba(0,0,0,1)] inline-flex">
+                        <svg viewBox="0 0 200 85" class="h-14 md:h-20 w-auto drop-shadow-[0_0_4px_rgba(57,255,20,0.8)]">
+                            <text x="100" y="58" font-family="Oswald, sans-serif" font-weight="900" font-size="70" fill="#39ff14" text-anchor="middle" letter-spacing="-1">AAKM</text>
+                            <rect x="0" y="64" width="200" height="21" fill="#39ff14" rx="2" />
+                            <text x="100" y="79" font-family="Inter, sans-serif" font-weight="900" font-size="12" fill="#000000" text-anchor="middle" letter-spacing="0.5">ADRIANO ALMEIDA KRAV MAGA</text>
                         </svg>
                     </div>
                 </div>
@@ -595,6 +627,33 @@
             
             btnPrev.addEventListener('click', () => {
                 carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            });
+        }
+
+        // 3. Lógica do Menu Mobile (Hambúrguer)
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        if(mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                const isHidden = mobileMenu.classList.contains('hidden');
+                
+                if(isHidden) {
+                    mobileMenu.classList.remove('hidden');
+                    mobileMenuBtn.classList.add('menu-open');
+                } else {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuBtn.classList.remove('menu-open');
+                }
+            });
+
+            // Fecha o menu ao clicar em qualquer link (Melhor experiência UX)
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuBtn.classList.remove('menu-open');
+                });
             });
         }
     </script>
