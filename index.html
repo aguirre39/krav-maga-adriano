@@ -161,34 +161,29 @@
     <!-- Textura de Fundo Tático -->
     <div class="bg-tactical"></div>
 
+    <!-- HEADER -->
     <header class="fixed w-full z-50 bg-darker/90 backdrop-blur-md border-b border-graydark">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center relative">
             
-            <!-- LOGO EM CÓDIGO (Header) - Otimizado para UX Profissional e Acessibilidade -->
-            <!-- Alterado: w-[75%] força o logótipo a esticar em direção ao menu hambúrguer no mobile -->
-            <a href="#" class="block w-[75%] sm:w-[60%] md:w-auto md:max-w-[320px] group relative z-50">
-                <!-- Brilho de fundo contido e elegante -->
-                <div class="absolute inset-0 bg-neon blur-[12px] opacity-10 group-hover:opacity-25 transition-opacity rounded-lg"></div>
-                
-                <!-- Caixa estilo "Patch Tático": fundo gradiente, sem borda neon berrante, padding calculado -->
-                <div class="relative flex items-center justify-center p-2.5 sm:p-3 bg-gradient-to-b from-[#111] to-[#000] rounded-lg border border-graydark shadow-lg group-hover:border-neon/50 transition-all duration-300">
-                    
-                    <!-- Novo ViewBox (0 0 320 90) dá espaço perfeito. Tipografia foi aumentada e espaçada -->
-                    <svg viewBox="0 0 320 90" class="w-full h-auto drop-shadow-[0_0_2px_rgba(57,255,20,0.4)]">
-                        <!-- Texto Principal AAKM: Centralizado e equilibrado -->
-                        <text x="160" y="55" font-family="Oswald, sans-serif" font-weight="900" font-size="64" fill="#39ff14" text-anchor="middle" letter-spacing="1">AAKM</text>
-                        <!-- Barra Verde de fundo para o subtexto -->
-                        <rect x="10" y="63" width="300" height="24" fill="#39ff14" rx="3" />
-                        <!-- Subtexto Subordinado: Proporcionalmente MAIOR (font-size 15 vs 64 do AAKM) garantindo leitura fácil em 320px de tela -->
-                        <text x="160" y="80" font-family="Inter, sans-serif" font-weight="900" font-size="15" fill="#000000" text-anchor="middle" letter-spacing="1.5">ADRIANO ALMEIDA KRAV MAGA</text>
+            <!-- LOGO EM CÓDIGO (Header) - Otimizado para Ocupar Muito Mais Espaço na Versão Mobile -->
+            <a href="#" class="flex items-center group relative z-50">
+                <div class="absolute inset-0 bg-neon blur-[15px] opacity-20 group-hover:opacity-40 transition-opacity rounded-xl"></div>
+                <!-- Box esticada ao máximo mantendo harmonia com o menu (px ajustado para encaixar melhor a largura) -->
+                <div class="relative flex items-center justify-center px-3 py-2.5 sm:px-4 md:py-3 md:px-5 bg-black rounded-xl border-2 border-neon/40 shadow-[0_0_15px_rgba(0,0,0,1)] group-hover:border-neon transition-all duration-300">
+                    <!-- Largura da imagem vetorizada controlada ativamente (w-48 no mobile, crescendo em telas maiores) -->
+                    <svg viewBox="0 0 200 85" class="w-48 sm:w-56 md:w-64 h-auto drop-shadow-[0_0_3px_rgba(57,255,20,0.8)]">
+                        <text x="100" y="58" font-family="Oswald, sans-serif" font-weight="900" font-size="70" fill="#39ff14" text-anchor="middle" letter-spacing="-1">AAKM</text>
+                        <!-- Barra verde levemente arredondada para combinar -->
+                        <rect x="0" y="64" width="200" height="21" fill="#39ff14" rx="2" />
+                        <text x="100" y="79" font-family="Inter, sans-serif" font-weight="900" font-size="12" fill="#000000" text-anchor="middle" letter-spacing="0.5">ADRIANO ALMEIDA KRAV MAGA</text>
                     </svg>
-                    
                 </div>
             </a>
 
             <!-- NAVEGAÇÃO DESKTOP -->
             <nav class="hidden md:flex gap-6 text-sm font-semibold text-gray-300">
                 <a href="#sobre" class="hover:text-neon transition-colors">O Instrutor</a>
+                <a href="#metodo" class="hover:text-neon transition-colors">A Metodologia</a>
                 <a href="#servicos" class="hover:text-neon transition-colors">Aulas em POA</a>
                 <a href="#historia" class="hover:text-neon transition-colors">O que é Krav Maga</a>
                 <a href="#faq" class="hover:text-neon transition-colors">Dúvidas</a>
@@ -217,6 +212,7 @@
 
                 <!-- LINKS MOBILE -->
                 <a href="#sobre" class="mobile-link text-white font-bold text-lg hover:text-neon transition-colors">O Instrutor</a>
+                <a href="#metodo" class="mobile-link text-white font-bold text-lg hover:text-neon transition-colors">A Metodologia AAKM</a>
                 <a href="#servicos" class="mobile-link text-white font-bold text-lg hover:text-neon transition-colors">Aulas em Porto Alegre</a>
                 <a href="#historia" class="mobile-link text-white font-bold text-lg hover:text-neon transition-colors">A História do Krav Maga</a>
                 <a href="#prova-social" class="mobile-link text-white font-bold text-lg hover:text-neon transition-colors">Quem Confia</a>
@@ -302,7 +298,7 @@
                 </div>
                 <div class="min-w-[300px] md:min-w-[400px] snap-center shrink-0 rounded-lg overflow-hidden border border-graydark relative group">
                     <div class="absolute inset-0 bg-black/50 group-hover:bg-transparent transition-colors z-10"></div>
-                    <img src="" alt="Técnicas de defesa pessoal" class="w-full h-64 object-cover" loading="lazy">
+                    <img src="[Image of Self Defense Techniques]" alt="Técnicas de defesa pessoal" class="w-full h-64 object-cover" loading="lazy">
                     <p class="absolute bottom-4 left-4 z-20 text-white font-bold bg-black/80 px-3 py-1 border-l-2 border-neon">Técnicas de Defesa</p>
                 </div>
                 <div class="min-w-[300px] md:min-w-[400px] snap-center shrink-0 rounded-lg overflow-hidden border border-graydark relative group">
@@ -464,6 +460,45 @@
             </div>
         </section>
 
+        <!-- 5.5 A METODOLOGIA AAKM (NOVA SECÇÃO) -->
+        <section id="metodo" class="py-20 bg-darker border-b border-graydark relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center max-w-3xl mx-auto mb-16 fade-in">
+                    <h2 class="text-neon font-bold tracking-widest text-sm mb-2 uppercase">A Evolução do Combate</h2>
+                    <h2 class="text-4xl font-bold text-white mb-4">A Metodologia <span class="text-neon">AAKM</span></h2>
+                    <p class="text-gray-400 text-lg">Um combate atual, direto e funcional sem excessos, sem ilusões, apenas o que realmente funciona.</p>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-12 items-start mb-8">
+                    <!-- Coluna 1 -->
+                    <div class="space-y-6 fade-in text-gray-300 text-lg leading-relaxed text-justify">
+                        <p>
+                            O <strong>método Adriano Almeida Krav Maga (AAKM)</strong> nasceu da necessidade real de evolução. Em um mundo em constante mudança, onde os desafios das ruas se tornam cada vez mais imprevisíveis, surgiu a urgência de um combate mais atual, direto e funcional sem excessos, sem ilusões, apenas o que realmente funciona.
+                        </p>
+                        <p>
+                            Criado com a mentalidade de uma célula viva, o AAKM está em constante adaptação. Tudo aquilo que deixa de ser eficiente é substituído por técnicas mais simples, naturais e eficazes. A base do método é clara: <span class="text-white font-bold border-b-2 border-neon">simplicidade, naturalidade e eficiência</span>, princípios que garantem respostas rápidas e decisivas em situações reais de confronto.
+                        </p>
+                        <p>
+                            Mas o AAKM vai além da reação. Um dos pilares fundamentais do método é a capacidade de antecipação e previsão. O praticante é treinado para desenvolver uma leitura apurada do ambiente e das pessoas ao seu redor, identificando comportamentos suspeitos, riscos iminentes e sinais que antecedem uma ameaça. Essa consciência situacional permite agir antes que o perigo se concretize, aumentando drasticamente as chances de segurança e sobrevivência.
+                        </p>
+                    </div>
+
+                    <!-- Coluna 2 -->
+                    <div class="space-y-6 fade-in text-gray-300 text-lg leading-relaxed text-justify">
+                        <p>
+                            Com mais de 20 anos de experiência atuando na segurança pública e na proteção de autoridades, Adriano Almeida desenvolveu um sistema que vai além da teoria. Cada movimento, cada estratégia e cada conceito foram testados na prática, em cenários onde errar não é uma opção.
+                        </p>
+                        <p>
+                            O AAKM trabalha em consonância com o Krav Maga tradicional, respeitando suas raízes, mas evoluindo com inteligência ao integrar também elementos da <strong>Arte Marcial Filipina</strong>. Essa fusão traz um diferencial estratégico, ampliando a capacidade de adaptação, leitura de ambiente e resposta sob pressão.
+                        </p>
+                        <blockquote class="border-l-4 border-neon pl-6 italic text-white mt-8 bg-dark/50 p-6 rounded-r-lg shadow-lg">
+                            "Mais do que um método de defesa pessoal, o AAKM é uma filosofia de sobrevivência preparada para qualquer ambiente, qualquer ameaça e qualquer realidade."
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- 6. SEÇÃO DE CONVERSÃO (CTA FORTE) -->
         <section class="py-24 bg-dark relative overflow-hidden border-y border-graydark">
             <!-- Fundo escuro com uma leve opacidade do neon para manter a identidade -->
@@ -536,7 +571,7 @@
                             <span class="faq-icon text-2xl text-gray-500 transition-transform duration-300">+</span>
                         </div>
                         <div class="faq-content bg-darker px-6">
-                            <p class="py-4 text-gray-400">Sim! A defesa pessoal feminina no Krav Maga funciona porque não depende da força física da mulher para superar a do homem. As técnicas utilizam alavancas, transferência de peso e golpes em pontos extremamente vitais, nivelando a desvantagem de força e permitindo a fuga segura em casos de assédio ou agressão.</p>
+                            <p class="py-4 text-gray-400">Dentro desse contexto, na Defesa Pessoal Feminina, o método deixa claro que a primeira e mais importante linha de proteção em uma situação de auto-defesa é a prevenção e a antecipação. Antes de qualquer confronto físico, a capacidade de perceber o risco, evitar o ambiente ou agir preventivamente é o que realmente preserva a integridade. O combate é sempre a última alternativa — sobreviver começa muito antes dele.</p>
                         </div>
                     </div>
                 </div>
